@@ -1,0 +1,172 @@
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1vw;
+}
+.header {
+  padding: 20px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  width: 100%;
+}
+.header a {color:white;}
+.content {
+  display: flex;
+  flex-wrap: wrap; /* Added to wrap columns */
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+.column {
+  flex: 1;
+  padding: 20px;
+  width: 100%; /* Added to make columns full width on small screens */
+}
+.column h2 {
+  color: #ddd;
+}
+.column form {
+  margin-bottom: 20px;
+}
+input[type='text'], input[type='password'], input[type='submit'], select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1vw;
+}
+input[type='submit'] {
+  background-color: #f95300;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  font-size: 1vw;
+}
+input[type='submit']:hover {
+  width: 100%;
+  background-color: #6d2400;
+  font-size: 1.5vw;
+}
+
+input[type='time']{ background-color: #000;  color: white; cursor: pointer; font-size: 2vw;}
+@media screen and (max-width: 800px) {
+  .content {
+    flex-direction: column;
+    font-size: 3vw;
+  }
+  .column {
+    width: 100%;
+  }
+  input[type='submit'] {   font-size: 3vw;  }  input[type='submit']:hover {    font-size: 3.5vw;}
+  input[type='time']{ background-color: #000;  color: white; cursor: pointer; font-size: 6vw;}
+}
+
+</style>
+</head>
+<body>
+
+<div class='header'>
+<a href='/' ><h1>Pavlov Machine</h1></a>
+</div>
+
+<div class='content'>
+<div class='column'>
+<h2>Set Feeding Time</h2>
+<form action='/settime1' method='post'>
+Trigger Time 1: <input type='time' name='feedingTime1'>
+<input type='submit' value='Set'>
+</form>
+<form action='/cleartime' method='post'>
+<input type='hidden' name='feedingTime' value='1'>
+<input type='submit' value='Clear Trigger Time 1'>
+</form>
+<form action='/settime2' method='post'>
+Trigger Time 2: <input type='time' name='feedingTime2'>
+<input type='submit' value='Set'>
+</form>
+<form action='/cleartime' method='post'>
+<input type='hidden' name='feedingTime' value='2'>
+<input type='submit' value='Clear Trigger Time 2'>
+</form>
+<form action='/settime3' method='post'>
+Trigger Time 3: <input type='time' name='feedingTime3'>
+<input type='submit' value='Set'>
+</form>
+<form action='/cleartime' method='post'>
+<input type='hidden' name='feedingTime' value='3'>
+<input type='submit' value='Clear Trigger Time 3'>
+</form>
+<form action='/settime4' method='post'>
+Trigger Time 4: <input type='time' name='feedingTime4'>
+<input type='submit' value='Set'>
+</form>
+<form action='/cleartime' method='post'>
+<input type='hidden' name='feedingTime' value='4'>
+<input type='submit' value='Clear Trigger Time 4'>
+</form>
+</div>
+<div class='column'>
+<h2>Feed</h2>
+<form action='/feed' method='post'>
+<input type='submit' value='Feed'>
+</form>
+<h2>Gate controls</h2>
+<form action='/servo' method='post'>
+<input type='hidden' name='angle' value='0'>
+<input type='submit' value='Close Gate'>
+</form>
+<form action='/servo' method='post'>
+<input type='hidden' name='angle' value='90'>
+<input type='submit' value='Open Gate'>
+</form>
+<h2>Carousel Control</h2>
+<form action='/carousel' method='post'>
+<input type='hidden' name='angle' value='45'>
+<input type='submit' value='1/8 Turn'>
+</form>
+<form action='/carousel' method='post'>
+<input type='hidden' name='angle' value='90'>
+<input type='submit' value='1/4 Turn'>
+</form>
+<form action='/carousel' method='post'>
+<input type='hidden' name='angle' value='180'>
+<input type='submit' value='1/2 Turn'>
+</form>
+<form action='/carousel' method='post'>
+<input type='hidden' name='angle' value='360'>
+<input type='submit' value='1 Turn'>
+</form>
+</div>
+<div class='column'>
+<h2>Configurations</h2>
+<h3>Configure your WiFi settings.</h3>
+<form action='/save' method='post'>
+SSID    : <input type='text' name='ssid'><br>
+Password: <input type='password' name='password'><br>
+<input type='submit' value='Save'>
+</form><br>
+<h3>Time Configurations</h3>
+<form action='/settimezone' method='post'>
+Select Timezone: <select name='timezone'>
+<option value='-5'>GMT -5</option>
+<!-- Add more timezone options here -->
+</select>
+<br> Select NTP Server: <select name='ntpServer'>
+<option value='pool.ntp.org'>pool.ntp.org</option>
+<option value='time.google.com'>time.google.com</option>
+<!-- Add more NTP server options here -->
+</select>
+<input type='submit' value='Set Timezone and NTP Server'>
+</form>
+</div>
+</div>
+</body>
+</html>
