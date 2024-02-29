@@ -22,26 +22,18 @@ The Pavlov Machine is a project aimed at automating the feeding process for pets
 
 ## Hardware Requirements
 
-- ESP32 Dev Kit
+- 3D printed parts
+- ESP32 Dev Kit V1 Doit
 - Servo motor MJ90S
-- Stepper motor 28BYJ-48 with ULN2003 PCB
-- [3D printed parts](https://www.tinkercad.com/things/hWJ3R70zxII-pavlov-machine) 
-- An on-off switch
+- Stepper motor 28BYJ-48 Modded for BiPolar operation
+- L293D H-Bridge Chip
+- LCD with integrated I2C 20 x 4
+- Lot of dupon cables
+- Small Bread Boards
+- on-off switch
+- Generic female Barrel to Terminal adapter 
+- Some M2 screw 
 - Power supply 5 volt 3 amp +
 
 
-## Setup
-
-1. Connect the servo motor to the designated pin on the ESP32.
-2. Connect the stepper motor to the designated pins on the ESP32.
-3. Configure the WiFi settings in the code to connect to your local network.
-4. Upload the code to the ESP32.
-5. Access the web interface by navigating to the IP address of the ESP32 in a web browser.
-
-## Usage
-
-1. Set feeding times using the web interface.
-2. Control the feeding gate to open and close.
-3. Dispense food from the carousel in different increments.
-4. Configure WiFi settings and timezone as needed.
-5. Set a custom header image for the user interface.
+The Project is stil under more improvement more instructions on how to put it togeter to come
