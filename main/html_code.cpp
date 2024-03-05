@@ -205,7 +205,7 @@ String htmlCode =
     "Text Color: <input type='color' name='textColor' value='#ffffff'><br>"
     "Border Color: <input type='color' name='borderColor' value='#73AD21'><br>"
     "Header Background Color: <input type='color' name='headerBgColor' "
-    "value='#333'><br>"
+    "value='#333333'><br>"
     "Header Text Size: <input type='number' name='headerTextSize' "
     "value='2'><br>"
     "Button Text Size: <input type='number' name='buttonTextSize' "
@@ -264,7 +264,7 @@ void modifyHtml(Preferences &preferences) {
   String ibgColor = preferences.getString("bgColor", "black");
   String itextColor = preferences.getString("textColor", "white");
   String iborderColor = preferences.getString("borderColor", "#73AD21");
-  String iheaderBgColor = preferences.getString("headerBgColor", "#333");
+  String iheaderBgColor = preferences.getString("headerBgColor", "#333333");
   int iborderRadius = preferences.getInt("borderRadius", 25);
   int iheaderTextSize = preferences.getInt("headerTextSize", 2);
   int ibuttonTextSize = preferences.getInt("buttonTextSize", 1);
@@ -317,39 +317,37 @@ void modifyHtml(Preferences &preferences) {
       "6vw;} }";
 
   String originalCSS =
-      "body { font-family: Tahoma, sans-serif; background-color: black; color: "
-      "white; display: flex; flex-direction: column; align-items: center; } "
-      ".header { padding: 10px; text-align: center; background-color: #333; "
-      "color: white; width: 80%;font-size: 2vw; border: 2px solid #73AD21; "
-      "border-radius: 25px;  } "
-      ".header a {color:white;}"
-      ".content { display: flex; flex-wrap: wrap; justify-content: "
-      "space-between; width: 100%; padding: 20px; font-size: 1vw; } "
-      ".column { flex: 1; padding: 20px; width: 90%;border: 2px solid #73AD21; "
-      "border-radius: 25px;  }"
-      ".column h2 { color: #ddd; cursor: pointer; }" // Added cursor: pointer;
-                                                     // for better UX
-      ".column h2 + div { display: none; }"          // Hide content initially
-      ".column h2.active + div { display: block; }"  // Show content when active
-      ".column form { margin-bottom: 20px; }"
-      "input[type='text'], input[type='password'], input[type='submit'], "
-      "select { padding: 10px; margin: 5px; border: 1px solid #ccc; "
-      "border-radius: 5px; } "
-      "input[type='submit'] { background-color: #f95300; width: 100%; color: "
-      "white; cursor: pointer; font-size: 1vw;border: 2px solid #73AD21; "
-      "border-radius: 25px; } "
-      "input[type='submit']:hover { width: 100%; background-color: "
-      "#6d2400;font-size: 1.5vw; border: 2px solid #73AD21; border-radius: "
-      "25px; } "
-      "input[type='time']{ background-color: #f95300; width: 100%; color: "
-      "white; cursor: pointer; font-size: 1vw;}"
-      "@media screen and (max-width: 1024px) { .content { flex-direction: "
-      "column; font-size: 3vw;} .column { width: 100%; } input[type='submit'] "
-      "{   font-size: 3vw;  } "
-      " input[type='submit']:hover {    font-size: 3.5vw;} input[type='time']{ "
-      "background-color: #000;  color: white; cursor: pointer; font-size: "
-      "6vw;} }";
-
+ "body { font-family: Tahoma, sans-serif; background-color: black; color: "
+    "white; display: flex; flex-direction: column; align-items: center; } "
+    ".header { padding: 10px; text-align: center; background-color: #333; "
+    "color: white; width: 80%;font-size: 2vw; border: 2px solid #73AD21; "
+    "border-radius: 25px;  } "
+    ".header a {color:white;}"
+    ".content { display: flex; flex-wrap: wrap; justify-content: "
+    "space-between; width: 100%; padding: 20px; font-size: 1vw; } "
+    ".column { flex: 1; padding: 20px; width: 90%;border: 2px solid #73AD21; "
+    "border-radius: 25px;  }"
+    ".column h2 { color: #ddd; cursor: pointer; }" // Added cursor: pointer; for
+                                                   // better UX
+    ".column h2 + div { display: none; }"          // Hide content initially
+    ".column h2.active + div { display: block; }"  // Show content when active
+    ".column form { margin-bottom: 20px; }"
+    "input[type='text'], input[type='password'], input[type='submit'], select "
+    "{ padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; "
+    "} "
+    "input[type='submit'] { background-color: #f95300; width: 100%; color: "
+    "white; cursor: pointer; font-size: 1vw;border: 2px solid #73AD21; "
+    "border-radius: 25px; } "
+    "input[type='submit']:hover { width: 100%; background-color: "
+    "#6d2400;font-size: 1.5vw; border: 2px solid #73AD21; border-radius: 25px; "
+    "} "
+    "input[type='time']{ background-color: #f95300; width: 100%; color: white; "
+    "cursor: pointer; font-size: 1vw;}"
+    "@media screen and (max-width: 1024px) { .content { flex-direction: "
+    "column; font-size: 3vw;} .column { width: 100%; } input[type='submit'] {  "
+    " font-size: 3vw;  } "
+    " input[type='submit']:hover {    font-size: 3.5vw;} input[type='time']{ "
+    "background-color: #000;  color: white; cursor: pointer; font-size: 6vw;} }" ;
   // Inject the stored steps per rotation into the HTML string
   modifiedHtmlCode.replace("name='stepsPerRotation'>",
                            "name='stepsPerRotation' value='" +

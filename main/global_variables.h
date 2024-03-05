@@ -12,10 +12,12 @@
 #include "html_code.h"
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
-#include "petfeeder.h"
 #include "webserver_functions.h"
 #include "LCD.h"
 #include "wifi.h"
+#include "time.h"
+#include "feeding_logic.h"
+
 
 extern const char *ap_ssid;
 extern const char *default_ap_password;

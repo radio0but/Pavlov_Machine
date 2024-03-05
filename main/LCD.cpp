@@ -63,7 +63,9 @@ void lcdPrint() {
 
     lcd.setCursor(15, 0);
     lcd.print(timeString);
-  } else {
+  } 
+  
+  else {
     lcd.setCursor(0, 3);
     lcd.print("Access Point mode  ");
     lcd.setCursor(0, 0);
